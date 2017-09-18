@@ -460,7 +460,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    23,    23,    24,    27,    28,    35,    47,    54
+       0,    23,    23,    24,    27,    28,    35,    42,    49
 };
 #endif
 
@@ -1249,20 +1249,15 @@ yyreduce:
     {
     	imagem I = abrir_imagem ((yyvsp[-2].strval));
     	printf ("Fator float = %f\n", atof((yyvsp[0].strval)));
-    	brilho_imagem (&I, atof((yyvsp[0].strval)));
-    	vmax_imagem (&I, &vmax[0]);
-    	printf ("Valor máximo r: %.2f\nValor máximo g: %.2f\nValor máximo b: %.2f\n", vmax[0], vmax[1], vmax[2]); 
-    	salvar_imagem ((yyvsp[-4].strval), &I);
-    	I = abrir_imagem ((yyvsp[-4].strval));
-    	vmax_imagem (&I, &vmax[0]);
-    	printf ("Valor máximo r: %.2f\nValor máximo g: %.2f\nValor máximo b: %.2f\n", vmax[0], vmax[1], vmax[2]);
-    	liberar_imagem (&I);
+    	brilho_imagem (&I, atof((yyvsp[0].strval)));     
+    	salvar_imagem ((yyvsp[-4].strval), &I);    	
+    	liberar_imagem (&I);    	
     }
-#line 1262 "y.tab.c" /* yacc.c:1646  */
+#line 1257 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 47 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 42 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
     	imagem I = abrir_imagem ((yyvsp[-2].strval));
     	printf ("Fator float = %f\n", 1/atof((yyvsp[0].strval)));    	
@@ -1270,21 +1265,21 @@ yyreduce:
     	salvar_imagem ((yyvsp[-4].strval), &I);    	
     	liberar_imagem (&I);
     }
-#line 1274 "y.tab.c" /* yacc.c:1646  */
+#line 1269 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 54 "./src/imageprocessing.y" /* yacc.c:1646  */
+#line 49 "./src/imageprocessing.y" /* yacc.c:1646  */
     {
     	imagem I = abrir_imagem ((yyvsp[-1].strval));
     	vmax_imagem (&I, &vmax[0]);
     	printf ("Valor máximo r: %.2f\nValor máximo g: %.2f\nValor máximo b: %.2f\n", vmax[0], vmax[1], vmax[2]);
     }
-#line 1284 "y.tab.c" /* yacc.c:1646  */
+#line 1279 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1288 "y.tab.c" /* yacc.c:1646  */
+#line 1283 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1512,7 +1507,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 62 "./src/imageprocessing.y" /* yacc.c:1906  */
+#line 57 "./src/imageprocessing.y" /* yacc.c:1906  */
 
 
 void yyerror(char *s) {
